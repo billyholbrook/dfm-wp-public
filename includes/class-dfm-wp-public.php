@@ -69,7 +69,6 @@ class DFM_WP_Public {
 
 		// include dependencies
 		add_action( 'after_setup_theme', array( $this, 'setup_dependencies' ), 20, 0 );
-
 	}
 
 	/**
@@ -81,9 +80,11 @@ class DFM_WP_Public {
 	 */
 	public function setup_dependencies() {
 		if ( is_admin() ) {
-			// Include dependencies
-			//require_once( $this->plugin_path . 'includes/class-something.php' );
+			/**
+			 * The class responsible for defining all actions that occur in the admin area.
+			 */
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-dfm-wp-public-admin.php';
+			$plugin_admin = new DFM_WP_Public_Admin( $this->plugin_name, $this->version );
 		}
 	}
-
 }
