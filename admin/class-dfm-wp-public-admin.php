@@ -81,7 +81,6 @@ class DFM_WP_Public_Admin {
         <?php
         $category_slug = str_replace(' ', '-', $category_name);
         $args = array(
-            'post_type'      => 'post',
             'category_name'  => $category_slug,
             'posts_per_page' => $num_posts,
             'orderby'        => 'publish_date',
